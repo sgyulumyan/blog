@@ -109,7 +109,7 @@
     </a>
   </div>
 </div>
-          <!-- Slideshow end -->          
+          <!-- Slideshow end -->
           <div class="card-body">
             <h2 class="card-title">{{$post->post_name}}</h2>
             <p class="card-text">{{$post->post_body}}</p>
@@ -121,7 +121,7 @@
           </div>
         </div>
 @endforeach
-        
+
         <!-- Old Pagination -->
         <!-- <ul class="pagination justify-content-center mb-4">
           <li class="page-item">
@@ -164,7 +164,7 @@
               </span>
              </div>
             </form>
-             
+
            </div>
          </div>
 
@@ -207,7 +207,7 @@
         <div class="card my-4">
           <h5 class="card-header">Side Widget</h5>
           <div class="card-body">
-            You can put anything you want inside of these side widgets. 
+            You can put anything you want inside of these side widgets.
           </div>
         </div>
 

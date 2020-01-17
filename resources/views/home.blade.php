@@ -26,44 +26,44 @@
   <div class="card-body">
 <form action="/avatar" method="post" enctype="multipart/form-data">
             @csrf
-            <input type="hidden" name="id" value="{{Auth::user()->id}}">  
+            <input type="hidden" name="id" value="{{Auth::user()->id}}">
             <input type="file" name="image">
-             
+
             <input type="submit" class="btn btn-success" value="Save">
         </form>
         </div>
-</div>        
+</div>
 <!-- posts Table -->
 <table class="table">
             <tr>
                 <th>Post id</th>
                 <th>User login</th>
-                <th>User image</th>                
+                <th>User image</th>
                 <th>Post title</th>
                 <th>Post</th>
                 <th>Operations</th>
 
-            </tr>       
+            </tr>
            @foreach($posts as $post)
-           
-            <tr> 
-         
-                <td>{{$post->id}}</td>  
+
+            <tr>
+
+                <td>{{$post->id}}</td>
                 <td>{{$post->user->login}}</td>
                 <!-- <td><img src="/images/{{Auth::user()->image}}" alt=""></td>    -->
                 <td><img src="/images/{{$post->user->image}}" alt=""></td>
-                <td id="post_name_{{$post->id}}">{{$post->post_name}}</td>  
+                <td id="post_name_{{$post->id}}">{{$post->post_name}}</td>
                 <td id="post_{{$post->id}}">{{$post->post_body}}</td>
-                <td> 
+                <td>
                     <button type="button" data-id="{{$post->id}}"  class="btn btn-primary post_edit" data-toggle="modal" >Edit
                     </button>
                     <button type="button" data-id="{{$post->id}}"  class="btn btn-danger post_delete" data-toggle="modal" >Delete
                     </button>
                 </td>
 
-             </tr>  
-            
-            @endforeach   
+             </tr>
+
+            @endforeach
 
 </table>
 <!-- posts table end -->
@@ -113,7 +113,7 @@
 
       <!-- Modal footer -->
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-id=""  data-dismiss="modal" 
+        <button type="button" class="btn btn-default" data-id=""  data-dismiss="modal"
         id="delete_post_Changes">Delete</button>
         <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
       </div>
@@ -143,16 +143,16 @@
         </ul>
       </div><br />
 @endif
-       
+
 </form>
 </div>
 
 </div>
 
 <!-- comments table -->
-<hr > 
+<hr >
 <table class="table">
-    <tr>        
+    <tr>
         <th>User login</th>
         <th>User image</th>
         <th>Post name</th>
@@ -170,15 +170,15 @@
             <td>
                 <button type="button" data-id="{{$comment->id}}"  class="btn btn-primary comment_edit" data-toggle="modal" >Edit
                 </button>
-                 <button type="button" data-id="{{$comment->id}}"  
+                 <button type="button" data-id="{{$comment->id}}"
                   class="btn btn-danger comment_delete" data-toggle="modal" >Delete
                 </button>
             </td>
-                       
+
          </tr>
-         @endif 
-     @endforeach  
-    
+         @endif
+     @endforeach
+
 </table>
 <!-- comments table end -->
 
@@ -195,10 +195,10 @@
                 <option value="{{$post->id}}">{{$post->post_name}}</option>
             @endforeach
              </select>
-            
+
             <textarea class="form-control" rows="5"  name="comment_body"  placeholder="Write yout comment here"></textarea>
             <input type="submit" class="btn btn-success" value="Add new comment">
-       
+
 </form>
 </div>
 <!-- Comment adding form ending -->
@@ -232,7 +232,7 @@
 <!-- comment edit modal  end -->
 
 
-</div>    
+</div>
  <!-- comments delete modal begining -->
 <div class="modal" id="Comment_Delete_Modal">
   <div class="modal-dialog">
@@ -252,7 +252,7 @@
 
       <!-- Modal footer -->
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-id=""  data-dismiss="modal" 
+        <button type="button" class="btn btn-default" data-id=""  data-dismiss="modal"
         id="delete_comment_Changes">Delete</button>
         <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
       </div>
@@ -262,5 +262,5 @@
 </div>
 <!-- comments delete modal ending-->
 
-            
+
 @endsection

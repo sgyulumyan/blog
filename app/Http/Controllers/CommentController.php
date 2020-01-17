@@ -13,19 +13,19 @@ class CommentController extends Controller
 {
     public function add()
     {
-        $input = Request::all();
+        $input = Request::all()
         // dd($input);
         $validator=Validator::make($input,[
         	'user_id'=>'required',
         	'post_id'=>'required',
             'comment_body'=>'required',
-            
+
         ],[]);
-        
+
         $errors = $validator->errors();
         if($validator->fails()){
-           return redirect()->back()->withErrors($errors)->with('input',$input);  
-        
+           return redirect()->back()->withErrors($errors)->with('input',$input);
+
         }
 
         // if(Request::file('image')){
@@ -34,7 +34,7 @@ class CommentController extends Controller
         //     $input["image"] = $filename;
         // }
 
-        
+
         Comment::create($input);
         return redirect("/home");
         }
@@ -57,4 +57,3 @@ class CommentController extends Controller
         	Comment::where('id',$data['id'])->delete($data);
         }
 }
-

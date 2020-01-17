@@ -26,7 +26,7 @@ class BlogController extends Controller
     {
     	$post = Post::find($id);
         $comments = Comment::with('user')->where('post_id', $id)->get();
-        
+
 
     	return view('read_more')
     	->with('posts', $post)
@@ -43,7 +43,7 @@ class BlogController extends Controller
         unset($data['_token']);
         $comment =Comment::create($data);
         if ($comment) {
-            return response()->json(['success'=>true,'comment'=>$comment,]); 
+            return response()->json(['success'=>true,'comment'=>$comment,]);
         }
         // return view("/forum/readmore")
         // ->with('posts', $post)
@@ -54,7 +54,7 @@ class BlogController extends Controller
    {
       // $search = $request->get('search');
         // $search = $request->input('search');
-       
+
        // dd($search);
       $posts = Post::where('post_name', 'LIKE', "%".Request::input("search")."%")->Paginate(3);
 

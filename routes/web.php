@@ -27,7 +27,7 @@ Route::post('/readmore/addcomment', 'BlogController@readmore_addcomment');
 
 
 Route::post('/home/post/add', 'PostController@add');
-// Route::post('/home/post/add', 'PostController@store');
+Route::post('/home/post/add', 'PostController@store');
 Route::post('/post/edit', 'PostController@edit');
 Route::post('/post/delete', 'PostController@delete');
 Route::get('/search', 'BlogController@search');
